@@ -45,6 +45,7 @@ const ProductCarousel = ({ categories }: ProductCarouselProps) => {
   useEffect(() => {
     if (!carouselApi) return
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const onSelect = (event: any) => {
       setCanScrollPrev(carouselApi.canScrollPrev())
       setCanScrollNext(carouselApi.canScrollNext())
