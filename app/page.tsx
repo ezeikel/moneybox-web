@@ -1,9 +1,16 @@
 import ProductCarousel from "@/components/ProductCarousel/ProductCarousel";
+import { getCategories } from "@/lib/sanity";
 
-export default function Home() {
+export const revalidate = 60;
+
+const Home = async () => {
+  const categories = await getCategories();
+
   return (
-    <div>
-      <ProductCarousel />
+    <div className="bg-moneybox-teal p-4 pt-16">
+      <ProductCarousel categories={categories} />
     </div>
   );
 }
+
+export default Home;
